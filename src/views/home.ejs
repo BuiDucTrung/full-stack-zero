@@ -1,0 +1,59 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home page</title>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav-bar">
+      <a href="/" class="avtice">Home</a>
+      <a href="/create" class="avtice">Create</a>
+    </div>
+    <div class="table">
+      <table>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+          <th>Action</th>
+        </tr>
+
+        <% for(let i =0; i< listUser.length; i++) { %>
+
+        <tr>
+          <td><%= listUser[i].email %></td>
+          <td><%= listUser[i].name %></td>
+          <td><%= listUser[i].city %></td>
+          <td>
+            <button>
+              <a href="/update/<%= listUser[i].id %>">Edit</a>
+            </button>
+            <button>
+              <a href="/delete-user/<%= listUser[i].id %>">Delete</a>
+            </button>
+          </td>
+        </tr>
+        <% }%>
+      </table>
+    </div>
+  </body>
+</html>
